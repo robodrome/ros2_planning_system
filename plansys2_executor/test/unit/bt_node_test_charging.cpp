@@ -34,10 +34,10 @@
 #include "plansys2_executor/ActionExecutorClient.hpp"
 #include "plansys2_problem_expert/Utils.hpp"
 
-#include "behaviortree_cpp_v3/behavior_tree.h"
-#include "behaviortree_cpp_v3/bt_factory.h"
-#include "behaviortree_cpp_v3/utils/shared_library.h"
-#include "behaviortree_cpp_v3/blackboard.h"
+#include "behaviortree_cpp/behavior_tree.h"
+#include "behaviortree_cpp/bt_factory.h"
+#include "behaviortree_cpp/utils/shared_library.h"
+#include "behaviortree_cpp/blackboard.h"
 
 #include "plansys2_executor/behavior_tree/execute_action_node.hpp"
 #include "plansys2_executor/behavior_tree/wait_atstart_req_node.hpp"
@@ -152,11 +152,11 @@ TEST(problem_expert, wait_atstart_req_test)
     auto tree = factory.createTreeFromText(bt_xml_tree, blackboard);
 
     auto status = BT::NodeStatus::RUNNING;
-    status = tree.tickRoot();
+    status = tree.tickOnce();
     ASSERT_EQ(status, BT::NodeStatus::RUNNING);
-    status = tree.tickRoot();
+    status = tree.tickOnce();
     ASSERT_EQ(status, BT::NodeStatus::RUNNING);
-    status = tree.tickRoot();
+    status = tree.tickOnce();
     ASSERT_EQ(status, BT::NodeStatus::RUNNING);
 
     for (const auto & pred : predicates) {
@@ -167,7 +167,7 @@ TEST(problem_expert, wait_atstart_req_test)
       ASSERT_TRUE(problem_client->addFunction(plansys2::Function(func)));
     }
 
-    status = tree.tickRoot();
+    status = tree.tickOnce();
     ASSERT_EQ(status, BT::NodeStatus::SUCCESS);
   } catch (std::exception & e) {
     std::cerr << e.what() << std::endl;
@@ -285,7 +285,7 @@ TEST(problem_expert, apply_atstart_effect_test)
     auto tree = factory.createTreeFromText(bt_xml_tree, blackboard);
 
     auto status = BT::NodeStatus::RUNNING;
-    status = tree.tickRoot();
+    status = tree.tickOnce();
     ASSERT_EQ(status, BT::NodeStatus::SUCCESS);
 
     {
@@ -412,7 +412,7 @@ TEST(problem_expert, apply_atend_effect_test)
     auto tree = factory.createTreeFromText(bt_xml_tree, blackboard);
 
     auto status = BT::NodeStatus::RUNNING;
-    status = tree.tickRoot();
+    status = tree.tickOnce();
     ASSERT_EQ(status, BT::NodeStatus::SUCCESS);
 
     {
