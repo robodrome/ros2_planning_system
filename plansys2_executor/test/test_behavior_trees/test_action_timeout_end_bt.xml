@@ -1,10 +1,12 @@
-<Sequence name="ACTION_ID">
-  <ReactiveSequence name="ACTION_ID">
-    <CheckTimeout action="ACTION_ID"/>
-    <CheckOverAllReq action="ACTION_ID"/>
-    <ExecuteAction action="ACTION_ID"/>
-  </ReactiveSequence>
-CHECK_PREV_ACTIONS
-  <CheckAtEndReq action="ACTION_ID"/>
-  <ApplyAtEndEffect action="ACTION_ID"/>
-</Sequence>
+<root BTCPP_format="4">
+  <Sequence name="ACTION_ID">
+    <ReactiveSequence name="ACTION_ID">
+      <CheckTimeout action="ACTION_ID"/>
+      <CheckOverAllReq action="ACTION_ID"/>
+      <ExecuteAction action="ACTION_ID"/>
+    </ReactiveSequence>
+  CHECK_PREV_ACTIONS
+    <CheckAtEndReq action="ACTION_ID"/>
+    <ApplyAtEndEffect action="ACTION_ID"/>
+  </Sequence>
+</root>

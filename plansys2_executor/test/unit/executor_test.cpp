@@ -248,7 +248,7 @@ TEST(executor, action_executor_client)
 
   std::string bt_xml_tree =
     R"(
-    <root main_tree_to_execute = "MainTree" >
+    <root BTCPP_format="4" main_tree_to_execute = "MainTree" >
       <BehaviorTree ID="MainTree">
         <Sequence name="root_sequence">
           <Parallel success_threshold="2" failure_threshold="1">
@@ -691,7 +691,7 @@ TEST(executor, action_real_action_1)
 
   std::string bt_xml_tree =
     R"(
-    <root main_tree_to_execute="MainTree">
+    <root BTCPP_format="4" main_tree_to_execute="MainTree">
       <BehaviorTree ID="MainTree">
         <Sequence name="(move r2d2 steering_wheels_zone assembly_zone):0">
           <WaitAction action="other"/>
@@ -753,7 +753,7 @@ TEST(executor, action_real_action_1)
   // Test ApplyAtStartEffect and CheckOverAllReq
   bt_xml_tree =
     R"(
-    <root main_tree_to_execute="MainTree">
+    <root BTCPP_format="4" main_tree_to_execute="MainTree">
       <BehaviorTree ID="MainTree">
         <WaitAtStartReq action="(move r2d2 steering_wheels_zone assembly_zone):0"/>
         <Sequence name="(move r2d2 steering_wheels_zone assembly_zone):0">
@@ -946,7 +946,7 @@ TEST(executor, cancel_bt_execution)
 
   std::string bt_xml_tree =
     R"(
-    <root main_tree_to_execute="MainTree">
+    <root BTCPP_format="4" main_tree_to_execute="MainTree">
       <BehaviorTree ID="MainTree">
         <WaitAtStartReq action="(move r2d2 steering_wheels_zone assembly_zone):0"/>
         <Sequence name="(move r2d2 steering_wheels_zone assembly_zone):0">
