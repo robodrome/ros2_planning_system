@@ -447,7 +447,7 @@ SimpleBTBuilder::get_tree(const plansys2_msgs::msg::Plan & current_plan)
   std::list<std::string> used_nodes;
 
   if (graph_->roots.size() > 1) {
-    bt_ = std::string("<root main_tree_to_execute=\"MainTree\">\n") +
+    bt_ = std::string("<root BTCPP_format=\"4\" main_tree_to_execute=\"MainTree\">\n") +
       t(1) + "<BehaviorTree ID=\"MainTree\">\n" +
       t(2) + "<Parallel success_threshold=\"" + std::to_string(graph_->roots.size()) +
       "\" failure_threshold=\"1\">\n";
@@ -459,7 +459,7 @@ SimpleBTBuilder::get_tree(const plansys2_msgs::msg::Plan & current_plan)
     bt_ = bt_ + t(2) + "</Parallel>\n" +
       t(1) + "</BehaviorTree>\n</root>\n";
   } else {
-    bt_ = std::string("<root main_tree_to_execute=\"MainTree\">\n") +
+    bt_ = std::string("<root BTCPP_format=\"4\" main_tree_to_execute=\"MainTree\">\n") +
       t(1) + "<BehaviorTree ID=\"MainTree\">\n";
 
     bt_ = bt_ + get_flow_tree(*graph_->roots.begin(), used_nodes, 2);

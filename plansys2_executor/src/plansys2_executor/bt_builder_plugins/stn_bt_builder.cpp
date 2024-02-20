@@ -245,7 +245,7 @@ STNBTBuilder::build_bt(const Graph::Ptr stn) const
   std::set<Node::Ptr> used;
   const auto & root = stn->nodes.front();
 
-  auto bt = std::string("<root main_tree_to_execute=\"MainTree\">\n") + t(1) +
+  auto bt = std::string("<root BTCPP_format=\"4\" main_tree_to_execute=\"MainTree\">\n") + t(1) +
     "<BehaviorTree ID=\"MainTree\">\n";
   bt = bt + get_flow(root, nullptr, used, 1);
   bt = bt + t(1) + "</BehaviorTree>\n</root>\n";

@@ -1,0 +1,6 @@
+[0.000000] (-) TimerEvent: {}
+[0.000266] (plansys2_executor) JobQueued: {'identifier': 'plansys2_executor', 'dependencies': OrderedDict([('plansys2_executor', '/workspaces/docker-ros2-dev/src/ros2_planning_system/plansys2_executor/install')])}
+[0.000299] (plansys2_executor) JobStarted: {'identifier': 'plansys2_executor'}
+[0.001209] (plansys2_executor) StderrLine: {'line': b'Traceback (most recent call last):\n  File "/usr/lib/python3/dist-packages/colcon_core/executor/__init__.py", line 91, in __call__\n    rc = await self.task(*args, **kwargs)\n  File "/usr/lib/python3/dist-packages/colcon_core/task/__init__.py", line 93, in __call__\n    return await task_method(*args, **kwargs)\n  File "/usr/lib/python3/dist-packages/colcon_ros/task/ament_cmake/test.py", line 29, in test\n    return await extension.test()\n  File "/usr/lib/python3/dist-packages/colcon_cmake/task/cmake/test.py", line 45, in test\n    assert os.path.exists(args.build_base), \\\nAssertionError: Has this package been built before?\n'}
+[0.001567] (plansys2_executor) JobEnded: {'identifier': 'plansys2_executor', 'rc': 1}
+[0.011537] (-) EventReactorShutdown: {}

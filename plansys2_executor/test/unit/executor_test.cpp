@@ -251,7 +251,7 @@ TEST(executor, action_executor_client)
     <root BTCPP_format="4" main_tree_to_execute = "MainTree" >
       <BehaviorTree ID="MainTree">
         <Sequence name="root_sequence">
-          <Parallel success_threshold="2" failure_threshold="1">
+          <Parallel success_count="2" failure_count="1">
             <ExecuteAction    action="(move robot1 wheels_zone assembly_zone):5"/>
             <ExecuteAction    action="(move robot1 steering_wheels_zone assembly_zone):5"/>
           </Parallel>

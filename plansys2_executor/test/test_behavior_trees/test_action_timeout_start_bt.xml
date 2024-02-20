@@ -1,7 +1,5 @@
-<root BTCPP_format="4">
-  <Sequence name="ACTION_ID">
-  WAIT_PREV_ACTIONS
-    <WaitAtStartReq action="ACTION_ID"/>
-    <ApplyAtStartEffect action="ACTION_ID"/>
-  </Sequence>
-</root>
+<Sequence name="ACTION_ID">
+WAIT_PREV_ACTIONS
+  <WaitAtStartReq action="ACTION_ID"/>
+  <ApplyAtStartEffect action="ACTION_ID"/>
+</Sequence>
