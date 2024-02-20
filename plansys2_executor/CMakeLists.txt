@@ -47,6 +47,8 @@ set(dependencies
     std_srvs
 )
 
+include_directories(include)
+
 set(EXECUTOR_SOURCES
   src/plansys2_executor/ExecutorClient.cpp
   src/plansys2_executor/ActionExecutor.cpp
@@ -67,6 +69,7 @@ set(EXECUTOR_SOURCES
 
 add_library(${PROJECT_NAME} SHARED ${EXECUTOR_SOURCES})
 ament_target_dependencies(${PROJECT_NAME} ${dependencies})
+target_link_libraries(${PROJECT_NAME})
 
 add_executable(executor_node
   src/executor_node.cpp
