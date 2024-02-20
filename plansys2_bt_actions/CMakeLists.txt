@@ -25,6 +25,8 @@ set(dependencies
     lifecycle_msgs
 )
 
+include_directories(include)
+
 set(BT_ACTIONS_SOURCES
   src/plansys2_bt_actions/BTAction.cpp
 )
@@ -66,5 +68,6 @@ endif()
 
 ament_export_include_directories(include)
 ament_export_dependencies(${dependencies})
+include_directories(include)
 
 ament_package()
