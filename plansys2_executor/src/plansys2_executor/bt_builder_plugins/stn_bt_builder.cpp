@@ -1161,8 +1161,8 @@ STNBTBuilder::get_flow(
   int n = 0;
   if (num_output_arcs > 1) {
     flow = flow + t(l + 1) +
-      "<Parallel success_threshold=\"" + std::to_string(num_output_arcs) +
-      "\" failure_threshold=\"1\">\n";
+      "<Parallel success_count=\"" + std::to_string(num_output_arcs) +
+      "\" failure_count=\"1\">\n";
     n = 1;
   }
 
