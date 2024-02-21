@@ -86,8 +86,12 @@ BTAction::on_activate(const rclcpp_lifecycle::State & previous_state)
   }
 
   for (int i = 0; i < get_arguments().size(); i++) {
+    auto arg = get_arguments()[i];
+    RCLCPP_DEBUG_STREAM(
+      get_logger(),
+      "Setting arg" << i << " [" << arg << "]");
     std::string argname = "arg" + std::to_string(i);
-    blackboard_->set(argname, get_arguments()[i]);
+    blackboard_->set(argname, arg);
   }
 
   if (get_parameter("bt_file_logging").as_bool() ||

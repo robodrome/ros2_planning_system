@@ -97,6 +97,7 @@ public:
         5.0,
         "The amount of time to wait for a response from the action server, in seconds")
     };
+    // The user defined ports are added to the basic ports
     basic.insert(addition.begin(), addition.end());
 
     return basic;
@@ -309,7 +310,7 @@ public:
       cancel_goal();
     }
 
-    setStatus(BT::NodeStatus::IDLE);
+    resetStatus();
   }
 
 protected:
