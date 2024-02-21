@@ -248,10 +248,10 @@ TEST(executor, action_executor_client)
 
   std::string bt_xml_tree =
     R"(
-    <root BTCPP_format="4" main_tree_to_execute = "MainTree" >
+    <root main_tree_to_execute = "MainTree" >
       <BehaviorTree ID="MainTree">
         <Sequence name="root_sequence">
-          <Parallel success_count="2" failure_count="1">
+          <Parallel success_threshold="2" failure_threshold="1">
             <ExecuteAction    action="(move robot1 wheels_zone assembly_zone):5"/>
             <ExecuteAction    action="(move robot1 steering_wheels_zone assembly_zone):5"/>
           </Parallel>
@@ -440,7 +440,7 @@ class ExecuteActionTest : public plansys2::ExecuteAction
 public:
   ExecuteActionTest(
     const std::string & xml_tag_name,
-    const BT::NodeConfig & conf)
+    const BT::NodeConfiguration & conf)
   : ExecuteAction(xml_tag_name, conf) {}
 
   void halt() override
@@ -465,7 +465,7 @@ class WaitActionTest : public plansys2::WaitAction
 public:
   WaitActionTest(
     const std::string & xml_tag_name,
-    const BT::NodeConfig & conf)
+    const BT::NodeConfiguration & conf)
   : WaitAction(xml_tag_name, conf) {}
 
   void halt() override
@@ -489,7 +489,7 @@ class CheckOverAllReqTest : public plansys2::CheckOverAllReq
 public:
   CheckOverAllReqTest(
     const std::string & xml_tag_name,
-    const BT::NodeConfig & conf)
+    const BT::NodeConfiguration & conf)
   : CheckOverAllReq(xml_tag_name, conf) {}
 
   void halt() override
@@ -513,7 +513,7 @@ class WaitAtStartReqTest : public plansys2::WaitAtStartReq
 public:
   WaitAtStartReqTest(
     const std::string & xml_tag_name,
-    const BT::NodeConfig & conf)
+    const BT::NodeConfiguration & conf)
   : WaitAtStartReq(xml_tag_name, conf) {}
 
   void halt() override
@@ -537,7 +537,7 @@ class CheckAtEndReqTest : public plansys2::CheckAtEndReq
 public:
   CheckAtEndReqTest(
     const std::string & xml_tag_name,
-    const BT::NodeConfig & conf)
+    const BT::NodeConfiguration & conf)
   : CheckAtEndReq(xml_tag_name, conf) {}
 
   void halt() override
@@ -561,7 +561,7 @@ class ApplyAtStartEffectTest : public plansys2::ApplyAtStartEffect
 public:
   ApplyAtStartEffectTest(
     const std::string & xml_tag_name,
-    const BT::NodeConfig & conf)
+    const BT::NodeConfiguration & conf)
   : ApplyAtStartEffect(xml_tag_name, conf) {}
 
   void halt() override
@@ -585,7 +585,7 @@ class ApplyAtEndEffectTest : public plansys2::ApplyAtEndEffect
 public:
   ApplyAtEndEffectTest(
     const std::string & xml_tag_name,
-    const BT::NodeConfig & conf)
+    const BT::NodeConfiguration & conf)
   : ApplyAtEndEffect(xml_tag_name, conf) {}
 
   void halt() override
@@ -691,7 +691,7 @@ TEST(executor, action_real_action_1)
 
   std::string bt_xml_tree =
     R"(
-    <root BTCPP_format="4" main_tree_to_execute="MainTree">
+    <root main_tree_to_execute="MainTree">
       <BehaviorTree ID="MainTree">
         <Sequence name="(move r2d2 steering_wheels_zone assembly_zone):0">
           <WaitAction action="other"/>
@@ -753,7 +753,7 @@ TEST(executor, action_real_action_1)
   // Test ApplyAtStartEffect and CheckOverAllReq
   bt_xml_tree =
     R"(
-    <root BTCPP_format="4" main_tree_to_execute="MainTree">
+    <root main_tree_to_execute="MainTree">
       <BehaviorTree ID="MainTree">
         <WaitAtStartReq action="(move r2d2 steering_wheels_zone assembly_zone):0"/>
         <Sequence name="(move r2d2 steering_wheels_zone assembly_zone):0">
@@ -946,7 +946,7 @@ TEST(executor, cancel_bt_execution)
 
   std::string bt_xml_tree =
     R"(
-    <root BTCPP_format="4" main_tree_to_execute="MainTree">
+    <root main_tree_to_execute="MainTree">
       <BehaviorTree ID="MainTree">
         <WaitAtStartReq action="(move r2d2 steering_wheels_zone assembly_zone):0"/>
         <Sequence name="(move r2d2 steering_wheels_zone assembly_zone):0">
